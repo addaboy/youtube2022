@@ -13,63 +13,80 @@ import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import { db } from "../../firebase";
+
 
 const Sidebar = () => {
+
+const [data, setData] = useState('');
+
+
+
+
+
   const { dispatch } = useContext(DarkModeContext);
   return (
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">lamadmin</span>
+          <span className="logo">HFHMS</span>
         </Link>
       </div>
       <hr />
       <div className="center">
+      <div className="currentUser">
+          <span className="welcome">Welcome, </span><span className="uname">Admin</span>
+          </div>
         <ul>
           <p className="title">MAIN</p>
           <li>
+          <Link to="/" style={{ textDecoration: "none" }}>
             <DashboardIcon className="icon" />
-            <span>Dashboard</span>
+            <span>Admin Dashboard</span>
+            </Link>
           </li>
-          <p className="title">LISTS</p>
+          <p className="title">ACTORS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Users</span>
             </li>
           </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
+          <li>
+          <Link to="/doctors" style={{ textDecoration: "none" }}>
+            <CreditCardIcon className="icon" />
+            <span>Doctors</span>
+            </Link>
+          </li>
+          <li>
+          <Link to="/pharmacy" style={{ textDecoration: "none" }}>
+            <InsertChartIcon className="icon" />
+            <span>Pharmacist</span>
+            </Link>
+          </li>
+          <li>
+          <Link to="/labs" style={{ textDecoration: "none" }}>
+            <InsertChartIcon className="icon" />
+            <span>Laboratory</span>
+            </Link>
+          </li>
+          <li>
+          <Link to="/adminstration" style={{ textDecoration: "none" }}>
+            <SettingsSystemDaydreamOutlinedIcon className="icon" />
+            <span>Admins</span>
+            </Link>
+          </li>
+          <p className="title">SERVICES</p>
+          <Link to="/departments" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
-              <span>Products</span>
+              <span>Departments</span>
             </li>
           </Link>
           <li>
-            <CreditCardIcon className="icon" />
-            <span>Orders</span>
-          </li>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li>
-          <p className="title">USEFUL</p>
-          <li>
-            <InsertChartIcon className="icon" />
-            <span>Stats</span>
-          </li>
-          <li>
             <NotificationsNoneIcon className="icon" />
             <span>Notifications</span>
-          </li>
-          <p className="title">SERVICE</p>
-          <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
-          </li>
-          <li>
-            <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
           </li>
           <li>
             <SettingsApplicationsIcon className="icon" />
@@ -84,6 +101,7 @@ const Sidebar = () => {
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
           </li>
+        
         </ul>
       </div>
       <div className="bottom">

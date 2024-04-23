@@ -8,14 +8,14 @@ import { collection, getDocs, deleteDoc, doc  } from "firebase/firestore";
 import { db } from "../../firebase";
 
 
-const Datatable = () => {
+const Laboratory_Table = () => {
   const [data, setData] = useState([]);
 
   useEffect(()=>{
     const fetchData = async () =>{
       let list = []
       try {
-        const querySnapshot = await getDocs(collection(db, "users"));
+        const querySnapshot = await getDocs(collection(db, "labs"));
         querySnapshot.forEach((doc) => {
           list.push({ id: doc.id, ...doc.data()})
         });
@@ -31,7 +31,7 @@ const Datatable = () => {
 
   const handleDelete = async (id) => {
     try {
-      await deleteDoc(doc(db, "users", id));
+      await deleteDoc(doc(db, "labs", id));
       setData(data.filter((item) => item.id !== id));
     } catch (error) {
       console.log(error)
@@ -63,8 +63,8 @@ const Datatable = () => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
-        <Link to="/users/new" className="link">
+        Add New Laboratory
+        <Link to="laboratory" className="link">
           Add New
         </Link>
       </div>
@@ -80,4 +80,4 @@ const Datatable = () => {
   );
 };
 
-export default Datatable;
+export default Laboratory_Table

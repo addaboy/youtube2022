@@ -4,16 +4,16 @@ import Navbar from "../../components/navbar/Navbar"
 import Datatable from "../../components/datatable/Datatable"
 import Departmentstable from "../../components/datatable/Departmentstable"
 
-const List = () => {
+const DepList = () => {
   return (
     <div className="list">
       <Sidebar/>
       <div className="listContainer">
         <Navbar/>
-        <Datatable/>
+        <Departmentstable />
       </div>
     </div>
   )
 }
 
-export default List
+export default DepList

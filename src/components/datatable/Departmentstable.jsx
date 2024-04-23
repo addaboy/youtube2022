@@ -1,6 +1,6 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
+import { deptColumns, userRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -8,14 +8,14 @@ import { collection, getDocs, deleteDoc, doc  } from "firebase/firestore";
 import { db } from "../../firebase";
 
 
-const Datatable = () => {
+const Departmentstable = () => {
   const [data, setData] = useState([]);
 
   useEffect(()=>{
     const fetchData = async () =>{
       let list = []
       try {
-        const querySnapshot = await getDocs(collection(db, "users"));
+        const querySnapshot = await getDocs(collection(db, "departments"));
         querySnapshot.forEach((doc) => {
           list.push({ id: doc.id, ...doc.data()})
         });
@@ -31,7 +31,7 @@ const Datatable = () => {
 
   const handleDelete = async (id) => {
     try {
-      await deleteDoc(doc(db, "users", id));
+      await deleteDoc(doc(db, "departments", id));
       setData(data.filter((item) => item.id !== id));
     } catch (error) {
       console.log(error)
@@ -63,15 +63,15 @@ const Datatable = () => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
-        <Link to="/users/new" className="link">
+        Add New Department
+        <Link to="new_dept" className="link">
           Add New
         </Link>
       </div>
       <DataGrid
         className="datagrid"
         rows={data}
-        columns={userColumns.concat(actionColumn)}
+        columns={deptColumns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
@@ -80,4 +80,4 @@ const Datatable = () => {
   );
 };
 
-export default Datatable;
+export default Departmentstable

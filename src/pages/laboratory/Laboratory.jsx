@@ -1,4 +1,4 @@
-import "./new.scss";
+import "../new/new.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const New = ({ inputs, title }) => {
+const Laboratory = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [data,setData] = useState("");
   const [per,setPerc] = useState(null);
@@ -75,7 +75,7 @@ uploadTask.on('state_changed',
         data.email,
         data.password
       )
-      await setDoc(doc(db, "users", res.user.uid), {
+      await setDoc(doc(db, "labs", res.user.uid), {
         ...data,
         Timestamp: serverTimestamp()
       });
@@ -136,5 +136,4 @@ uploadTask.on('state_changed',
     </div>
   );
 };
-
-export default New;
+export default Laboratory

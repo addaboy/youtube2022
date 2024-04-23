@@ -1,53 +1,53 @@
 export const userInputs = [
     {
-      id: 1,
+      id: "username",
       label: "Username",
       type: "text",
       placeholder: "john_doe",
     },
     {
-      id: 2,
+      id: "displayName",
       label: "Name and surname",
       type: "text",
       placeholder: "John Doe",
     },
     {
-      id: 3,
+      id: "email",
       label: "Email",
       type: "mail",
       placeholder: "john_doe@gmail.com",
     },
     {
-      id: 4,
+      id: "phone",
       label: "Phone",
       type: "text",
-      placeholder: "+1 234 567 89",
+      placeholder: "+251 44 8899 49",
     },
     {
-      id: 5,
+      id: "password",
       label: "Password",
       type: "password",
     },
     {
-      id: 6,
+      id: "address",
       label: "Address",
       type: "text",
-      placeholder: "Elton St. 216 NewYork",
+      placeholder: "Jegol St. 216 Harar",
     },
     {
-      id: 7,
-      label: "Country",
+      id: "city",
+      label: "City",
       type: "text",
-      placeholder: "USA",
+      placeholder: "Harar",
     },
   ];
   
   export const productInputs = [
     {
       id: 1,
-      label: "Title",
+      label: "Department Name",
       type: "text",
-      placeholder: "Apple Macbook Pro",
+      placeholder: "Enter name",
     },
     {
       id: 2,
@@ -55,23 +55,6 @@ export const userInputs = [
       type: "text",
       placeholder: "Description",
     },
-    {
-      id: 3,
-      label: "Category",
-      type: "text",
-      placeholder: "Computers",
-    },
-    {
-      id: 4,
-      label: "Price",
-      type: "text",
-      placeholder: "100",
-    },
-    {
-      id: 5,
-      label: "Stock",
-      type: "text",
-      placeholder: "in stock",
-    },
+
   ];
   
